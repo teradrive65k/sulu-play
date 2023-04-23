@@ -47,7 +47,27 @@
 
     <footer>
         {% block footer %}
+            {#
             <p>Copyright {{ 'now'|date('Y') }} SULU</p>
+            #}
+            <ul>
+                {% for item in sulu_navigation_root_tree('footer', 2) %}
+                    <li>
+                        <a href="{{ sulu_content_path(item.url) }}"
+                           title="{{ item.title }}">{{ item.title }}</a>
+                        {% if item.children|length > 0 %}
+                            <ul>
+                                {% for child in item.children %}
+                                    <li><a href="{{ sulu_content_path(child.url) }}"
+                                           title="{{ child.title }}">
+                                            {{ child.title }}
+                                        </a></li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
         {% endblock %}
     </footer>
 
