@@ -6,3 +6,43 @@ sulu_admin:
     lists:
         directories:
             - "%kernel.project_dir%/config/lists"
+    resources:
+        products:
+            routes:
+                list: 'app.get_product_list'
+                detail: 'app.get_product'
+    field_type_options:
+        selection:
+            product_selection:
+                default_type: 'list_overlay'
+                resource_key: 'products'
+                view:
+                    name: 'app.product.edit_form'
+                    result_to_view:
+                        id: 'id'
+                types:
+                    list_overlay:
+                        adapter: 'table'
+                        list_key: 'products'
+                        display_properties:
+                            - 'name'
+                        icon: 'su-storage'
+                        label: 'app.product_selection_label'
+                        overlay_title: 'app.select_products'
+        single_selection:
+            single_product_selection:
+                default_type: 'list_overlay'
+                resource_key: 'products'
+                view:
+                    name: 'app.product.edit_form'
+                    result_to_view:
+                        id: 'id'
+                types:
+                    list_overlay:
+                        adapter: 'table'
+                        list_key: 'products'
+                        display_properties:
+                            - 'title'
+                        icon: 'su-storage'
+                        empty_text: 'app.no_product_selected'
+                        overlay_title: 'app.select_product'
