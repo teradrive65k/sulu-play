@@ -1,6 +1,7 @@
 <?xml version="1.0" ?>
 <template xmlns="http://schemas.sulu.io/template/template"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:xi="http://www.w3.org/2001/XInclude"
           xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
 
     <key>homepage</key>
@@ -42,5 +43,27 @@
                 <title lang="de">Artikel</title>
             </meta>
         </property>
+        <section name="content">
+            <meta>
+                <title lang="en">Content</title>
+                <title lang="de">Inhalte</title>
+            </meta>
+            <properties>
+                <!-- @see https://docs.sulu.io/en/2.2/book/templates.html#including-other-templates -->
+                <block name="blocks" default-type="products" minOccurs="0">
+                    <!-- @see https://docs.sulu.io/en/2.2/reference/content-types/block.html -->
+
+                    <meta>
+                        <title lang="en">Blocks</title>
+                        <title lang="de">Blöcke</title>
+                    </meta>
+
+                    <types>
+                        <xi:include href="../includes/blocks/product.xml"
+                                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+                    </types>
+                </block>
+            </properties>
+        </section>
     </properties>
 </template>

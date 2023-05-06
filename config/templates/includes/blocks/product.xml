@@ -1,0 +1,19 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+    <block name="blocks" default-type="text">
+        <types>
+            <type name="products">
+                <meta>
+                    <title lang="en">Product</title>
+                    <title lang="de">Product</title>
+                </meta>
+
+                <properties>
+                    <property name="products" type="product_selection">
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>
