@@ -29,11 +29,11 @@ class ProductAdmin extends Admin
     public function configureNavigationItems(NavigationItemCollection $navigationItemCollection): void
     {
         if ($this->securityChecker->hasPermission(Product::SECURITY_CONTEXT, PermissionTypes::EDIT)) {
-            $rootNavigationItem = new NavigationItem('app.product');
-            $rootNavigationItem->setIcon('fa-music');
+            $rootNavigationItem = new NavigationItem('Sales');
+            $rootNavigationItem->setIcon('fa-dropbox');
             $rootNavigationItem->setPosition(25);
 
-            $navigationItem = new NavigationItem('app.products');
+            $navigationItem = new NavigationItem('Products');
             $navigationItem->setView(static::LIST_VIEW);
 
             $rootNavigationItem->addChild($navigationItem);
@@ -68,7 +68,7 @@ class ProductAdmin extends Admin
                 $this->viewBuilderFactory->createListViewBuilder(static::LIST_VIEW, '/products')
                     ->setResourceKey(Product::RESOURCE_KEY)
                     ->setListKey(Product::LIST_KEY)
-                    ->setTitle('app.products')
+                    ->setTitle('Products')
                     ->addListAdapters(['table'])
                     ->setAddView(static::ADD_FORM_VIEW)
                     ->setEditView(static::EDIT_FORM_VIEW)
