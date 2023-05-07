@@ -32,6 +32,12 @@ class Product implements AuditableInterface
     #[ORM\Column(type: Types::TEXT)]
     private string $description;
 
+    /**
+     * @var mixed[]
+     */
+    #[ORM\Column(type: Types::JSON)]
+    private array $attributes = [];
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,5 +65,21 @@ class Product implements AuditableInterface
         $this->description = $description;
 
         return $this;
+    }
+
+    /**
+     * @return mixed[]
+     */
+    public function getAttributes(): array
+    {
+        return $this->attributes;
+    }
+
+    /**
+     * @param mixed[] $attributes
+     */
+    public function setAttributes(array $attributes): void
+    {
+        $this->attributes = $attributes;
     }
 }

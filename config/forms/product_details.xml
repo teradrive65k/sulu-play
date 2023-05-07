@@ -22,5 +22,61 @@
                 <param name="description" value="true"/>
             </params>
         </property>
+        <block name="attributes" default-type="attributes" minOccurs="1">
+            <meta>
+                <title>Attributs</title>
+            </meta>
+
+            <params>
+                <param name="add_button_text">
+                    <meta>
+                        <title>Ajouter un attribut</title>
+                    </meta>
+                </param>
+            </params>
+
+            <types>
+                <type name="attributes">
+                    <meta>
+                        <title>Attributs</title>
+                    </meta>
+                    <properties>
+                        <property name="types" type="single_select" colspan="4">
+                            <meta>
+                                <title>Type</title>
+                            </meta>
+                            <params>
+                                <param name="default_value" value="string"/>
+                                <param name="values" type="collection">
+                                    <param name="string">
+                                        <meta>
+                                            <title>Chaine de caractères</title>
+                                        </meta>
+                                    </param>
+
+                                    <param name="bool">
+                                        <meta>
+                                            <title>Oui/Non</title>
+                                        </meta>
+                                    </param>
+                                </param>
+                            </params>
+                        </property>
+                        <property name="attribute" type="text_line" mandatory="true" colspan="4">
+                            <meta>
+                                <title>Attribute</title>
+                            </meta>
+                            <tag name="sulu.block_preview" priority="1024"/>
+                        </property>
+                        <property name="value" type="text_line" mandatory="true" colspan="4">
+                            <meta>
+                                <title>Value</title>
+                            </meta>
+                            <tag name="sulu.block_preview" priority="1024"/>
+                        </property>
+                    </properties>
+                </type>
+            </types>
+        </block>
     </properties>
 </form>

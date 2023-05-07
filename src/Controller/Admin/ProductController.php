@@ -20,6 +20,7 @@ use Symfony\Component\Routing\Annotation\Route;
  *     id: int|null,
  *     name: string,
  *     description: string,
+ *     attributes: mixed[],
  * }
  */
 class ProductController extends AbstractController implements SecuredControllerInterface
@@ -108,6 +109,7 @@ class ProductController extends AbstractController implements SecuredControllerI
             'id' => $entity->getId(),
             'name' => $entity->getName(),
             'description' => $entity->getDescription(),
+            'attributes' => $entity->getAttributes(),
         ];
     }
 
@@ -118,6 +120,7 @@ class ProductController extends AbstractController implements SecuredControllerI
     {
         $entity->setName($data['name']);
         $entity->setDescription($data['description']);
+        $entity->setAttributes($data['attributes']);
     }
 
     public function getSecurityContext(): string
