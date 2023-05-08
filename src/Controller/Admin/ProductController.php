@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller\Admin;
 
 use App\Common\DoctrineListRepresentationFactory;
+use App\Entity\Family;
 use App\Entity\Product;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Exception\ORMException;
@@ -21,6 +22,7 @@ use Symfony\Component\Routing\Annotation\Route;
  *     name: string,
  *     description: string,
  *     attributes: mixed[],
+ *     family: int|null,
  * }
  */
 class ProductController extends AbstractController implements SecuredControllerInterface
@@ -105,11 +107,14 @@ class ProductController extends AbstractController implements SecuredControllerI
      */
     protected function getDataForEntity(Product $entity): array
     {
+        $family = $entity->getFamily();
+
         return [
             'id' => $entity->getId(),
             'name' => $entity->getName(),
             'description' => $entity->getDescription(),
             'attributes' => $entity->getAttributes(),
+            'family' => $family->getId(),
         ];
     }
 
@@ -121,6 +126,12 @@ class ProductController extends AbstractController implements SecuredControllerI
         $entity->setName($data['name']);
         $entity->setDescription($data['description']);
         $entity->setAttributes($data['attributes']);
+
+        $familyId = $data['family'];
+        $family = $this->entityManager->find(Family::class, $familyId);
+        if ($family instanceof Family) {
+            $entity->setFamily($family);
+        }
     }
 
     public function getSecurityContext(): string
