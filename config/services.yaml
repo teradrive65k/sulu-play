@@ -33,3 +33,9 @@ services:
 
     App\Content\Type\ProductSelection:
         tags: [ { name: 'sulu.content.type', alias: 'product_selection' } ]
+
+    App\Content\Type\SingleFamilySelection:
+        tags: [ { name: 'sulu.content.type', alias: 'single_family_selection' } ]
+
+    App\Content\Type\FamilySelection:
+        tags: [ { name: 'sulu.content.type', alias: 'family_selection' } ]

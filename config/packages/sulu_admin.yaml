@@ -33,6 +33,22 @@ sulu_admin:
                         icon: 'su-storage'
                         label: 'app.product_selection_label'
                         overlay_title: 'app.select_products'
+            family_selection:
+                default_type: 'list_overlay'
+                resource_key: 'families'
+                view:
+                    name: 'app.family.edit_form'
+                    result_to_view:
+                        id: 'id'
+                types:
+                    list_overlay:
+                        adapter: 'table'
+                        list_key: 'families'
+                        display_properties:
+                            - 'name'
+                        icon: 'su-storage'
+                        label: 'app.family_selection_label'
+                        overlay_title: 'app.select_families'
         single_selection:
             single_product_selection:
                 default_type: 'list_overlay'
@@ -50,3 +66,19 @@ sulu_admin:
                         icon: 'su-storage'
                         empty_text: 'app.no_product_selected'
                         overlay_title: 'app.select_product'
+            single_family_selection:
+                default_type: 'list_overlay'
+                resource_key: 'families'
+                view:
+                    name: 'app.family.edit_form'
+                    result_to_view:
+                        id: 'id'
+                types:
+                    list_overlay:
+                        adapter: 'table'
+                        list_key: 'families'
+                        display_properties:
+                            - 'title'
+                        icon: 'su-storage'
+                        empty_text: 'app.no_family_selected'
+                        overlay_title: 'app.select_family'
