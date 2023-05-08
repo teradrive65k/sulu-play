@@ -11,6 +11,10 @@ sulu_admin:
             routes:
                 list: 'app.get_product_list'
                 detail: 'app.get_product'
+        families:
+            routes:
+                list: 'app.get_family_list'
+                detail: 'app.get_family'
     field_type_options:
         selection:
             product_selection:
