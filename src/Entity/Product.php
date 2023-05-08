@@ -38,6 +38,10 @@ class Product implements AuditableInterface
     #[ORM\Column(type: Types::JSON)]
     private array $attributes = [];
 
+    #[ORM\ManyToOne(targetEntity: Family::class, cascade: ['persist'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private Family $family;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -81,5 +85,17 @@ class Product implements AuditableInterface
     public function setAttributes(array $attributes): void
     {
         $this->attributes = $attributes;
+    }
+
+    public function getFamily(): Family
+    {
+        return $this->family;
+    }
+
+    public function setFamily(Family $family): self
+    {
+        $this->family = $family;
+
+        return $this;
     }
 }
