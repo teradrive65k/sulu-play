@@ -22,6 +22,14 @@
                 <param name="description" value="true"/>
             </params>
         </property>
+        <property name="family" type="single_family_selection">
+            <meta>
+                <title>Family</title>
+            </meta>
+            <params>
+                <param name="name" value="name"/>
+            </params>
+        </property>
         <block name="attributes" default-type="attributes" minOccurs="1">
             <meta>
                 <title>Attributs</title>
